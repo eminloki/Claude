@@ -1,0 +1,55 @@
+# Emin Loki: Game- und KI-Entwicklung
+
+Dieses kleine Startpaket enthält die Projektanweisungen für Claude und eine dauerhafte Projektübersicht. Es ist für ein privates GitHub-Repository gedacht, das Emin und sein Vater gemeinsam verwalten.
+
+## Dateien
+
+- `CLAUDE.md`: Lern- und Arbeitsregeln für Claude Code. Claude Code lädt Projektanweisungen aus dieser Datei, wenn das Projektverzeichnis geöffnet wird.
+- `PROJECT.md`: kurze Projektübersicht, die Emin nach jeder Lernrunde aktuell halten kann.
+- `START_PROMPT.md`: kurzer Text zum Einfügen in einen neuen Claude-Chat oder ein Claude-Projekt.
+- `ROADMAP.md`: altersgerechter Lernpfad vom kleinen Scratch-Abenteuer bis zu Open-World- und KI-Prototypen.
+
+Wenn Emin Claude über die Claude-App statt Claude Code nutzt, kann er `CLAUDE.md` als Projektanweisung in den Projekteinstellungen einfügen und `PROJECT.md` als Projektwissen hochladen. Die sichtbaren Funktionen können je nach Claude-App, Tarif und Konto abweichen. Eine Datei allein schaltet keine Fähigkeiten oder Konnektoren frei.
+
+## GitHub mit PowerShell vorbereiten
+
+Ein Elternteil sollte bei Konto- und Veröffentlichungsentscheidungen dabeibleiben. Das Repository sollte zunächst **privat** sein.
+
+1. Installiere Git und, falls gewünscht, GitHub CLI (`gh`) von den offiziellen GitHub-Seiten.
+2. Öffne PowerShell im Ordner, in dem die Startpaket-Dateien liegen.
+3. Melde die GitHub CLI über den Browser an:
+
+   ```powershell
+   gh auth login
+   ```
+
+4. Prüfe den angemeldeten Account:
+
+   ```powershell
+   gh auth status
+   ```
+
+5. Prüft gemeinsam die Dateien und stellt sicher, dass die PowerShell im Ordner `outputs` geöffnet ist. Für ein **neues privates Repository** namens `emin-game-dev` führt ein Elternteil diese Befehle einzeln aus:
+
+   ```powershell
+   git init -b main
+   git add README.md CLAUDE.md CLAUDE_PROJECT.md PROJECT.md START_PROMPT.md ROADMAP.md
+   git commit -m "Add Emin's game development starter kit"
+   gh repo create emin-game-dev --private --source=. --remote=origin --push
+   ```
+
+   Git kann beim ersten Commit noch nach Name und E-Mail fragen. Nutzt die GitHub-Einstellungen des Elternteils, um die passende Commit-Identität festzulegen; tragt keine E-Mail oder Zugangsdaten in Claude ein. Der letzte Befehl erstellt ein **privates** Repository und überträgt den Commit. Wenn das Repository schon existiert, nicht diesen Erstellungsbefehl verwenden: zuerst das vorhandene Repository klonen und die Dateien dort hinzufügen.
+
+6. Prüft anschließend die Repository-Seite im Browser und bestätigt, dass die Sichtbarkeit auf „Private“ steht und nur die gewünschten Dateien enthalten sind.
+
+GitHub CLI benötigt keine Passwörter oder Tokens im Chat. Gib solche Geheimnisse niemals an eine KI weiter. Für Emin sollte ein Elternteil die Kontoeinrichtung und Repository-Sichtbarkeit übernehmen.
+
+## Danach
+
+Öffne dieses Verzeichnis in Claude Code. Starte mit dem kleinen nächsten Lernziel aus `PROJECT.md`. Claude soll vor einer Installation erst prüfen, was auf dem Computer bereits vorhanden ist. Ubuntu ist für die ersten Schritte nicht erforderlich; PowerShell genügt für Datei- und Git-Befehle unter Windows.
+
+## Offizielle Hilfe
+
+- [GitHub: Getting started with Git](https://docs.github.com/en/get-started/learning-to-code/getting-started-with-git)
+- [GitHub: GitHub CLI quickstart](https://docs.github.com/en/enterprise-cloud%40latest/github-cli/github-cli/quickstart)
+- [Anthropic: Claude Code memory](https://docs.anthropic.com/en/docs/claude-code/memory)
